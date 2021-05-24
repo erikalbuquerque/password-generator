@@ -11,7 +11,8 @@
     gap: 2rem;
 }
 
-.options {
+.options,
+.generator {
     display: flex;
     flex-direction: column;
     transition: all 0.2s ease;
@@ -63,6 +64,50 @@
         }
         div input {
             margin-right: 0.5rem;
+        }
+    }
+}
+
+.generator {
+    .displayResult {
+        width: 100%;
+        label {
+            font-size: 0.875rem;
+            margin-right: 1rem;
+        }
+        input {
+            min-width: 250px;
+            max-width: 400px;
+            height: 1.875rem;
+            font-size: 0.875rem;
+            color: #008040;
+            padding: 0 0 0 0.313rem;
+        }
+        button {
+            border: none;
+            font-size: 0.875rem;
+            font-weight: bold;
+            margin-left: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: filter 0.2s;
+        }
+        button:hover {
+            filter: brightness(0.9);
+        }
+    }
+    .generatorButton {
+        button {
+            border: none;
+            font-size: 0.875rem;
+            font-weight: bold;
+            padding: 0.7rem 1rem;
+            border-radius: 0.5rem;
+            transition: filter 0.2s;
+            margin-top: 2rem;
+        }
+        button:hover {
+            filter: brightness(0.9);
         }
     }
 }

@@ -51,6 +51,25 @@ export function App() {
               </div>
             </div>
           </div>
+          <div className={styles.generator}>
+            <div className={styles.header}>
+              <div className={styles.buttons}>
+                <span className={styles.red} />
+                <span className={styles.yellow} />
+                <span className={styles.green} />
+              </div>
+              <strong>Generator</strong>
+              <div />
+            </div>
+            <div className={styles.displayResult}>
+              <label htmlFor="newPassword">Your New Password:</label>
+              <input type="text" value="Your new password will appear here." id="newPassword" />
+              <button>Copy</button>
+            </div>
+            <div className={styles.generatorButton}>
+              <button>Generate Password</button>
+            </div>
+          </div>
         </div>
       </div>
     </>
