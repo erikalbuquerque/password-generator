@@ -1,0 +1,68 @@
+.wrapper {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(400px, 600px));
+    gap: 2rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+    border-radius: 0.313rem;
+    padding: 1rem;
+    box-shadow: 0 0.313rem 0.625rem rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+    border: 1px solid transparent;
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        strong {
+            font-size: 0.875rem;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            span {
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+                display: inline-block;
+            }
+            .red {
+                background-color: #ff5f56;
+            }
+            .yellow {
+                margin-left: 0.375rem;
+                background-color: #ffbd2e;
+            }
+            .green {
+                margin-left: 0.375rem;
+                background-color: #27c93f;
+            }
+        }
+    }
+    .middleContent {
+        width: 100%;
+        div {
+            margin-bottom: 0.5rem;
+        }
+        div span {
+            font-size: 0.875rem;
+            margin-right: 1rem;
+        }
+        div input {
+            margin-right: 0.5rem;
+        }
+    }
+}
