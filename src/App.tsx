@@ -22,7 +22,19 @@ export function App() {
       const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
       const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
       const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-      password.push(randomLetter, randomNumber, randomSymbol)
+
+
+      const characterArray = [
+        randomLetter,
+        includeNumbers ? randomNumber : randomLetter,
+        includeSymbols ? randomSymbol : randomLetter
+      ];
+
+      console.log(characterArray, characterArray.join(""), characterArray.length)
+
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+
+      password.push(shufflePositionResult)
     }
     setNewPassword(password.join("").trim())
   }
