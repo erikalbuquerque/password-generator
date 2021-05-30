@@ -16,22 +16,70 @@ export function App() {
   const [includeNumbers, setIncludeNumbers] = useState(true)
   const [includeSymbols, setIncludeSymbols] = useState(true)
 
+  function returnDefaultLetters() {
+    if ((!includeUppercase && !includeLowercase) && (includeNumbers && includeSymbols)) {
+      const characterArray = [numbers[Math.floor(Math.random() * numbers.length)], symbols[Math.floor(Math.random() * symbols.length)]]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeUppercase && (includeNumbers && includeSymbols)) {
+      const characterArray = [numbers[Math.floor(Math.random() * numbers.length)], symbols[Math.floor(Math.random() * symbols.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleUpperCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeLowercase && (includeNumbers && includeSymbols)) {
+      const characterArray = [numbers[Math.floor(Math.random() * numbers.length)], symbols[Math.floor(Math.random() * symbols.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleLowerCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeLowercase && includeUppercase && includeNumbers && includeSymbols) {
+      const characterArray = [numbers[Math.floor(Math.random() * numbers.length)], symbols[Math.floor(Math.random() * symbols.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleLowerCase(), alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleUpperCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeUppercase && includeNumbers) {
+      const characterArray = [numbers[Math.floor(Math.random() * numbers.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleUpperCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeUppercase && includeSymbols) {
+      const characterArray = [symbols[Math.floor(Math.random() * symbols.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleUpperCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeLowercase && includeNumbers) {
+      const characterArray = [numbers[Math.floor(Math.random() * numbers.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleLowerCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeLowercase && includeSymbols) {
+      const characterArray = [symbols[Math.floor(Math.random() * symbols.length)], alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleLowerCase()]
+      const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
+      return shufflePositionResult
+    }
+    if (includeSymbols) {
+      return symbols[Math.floor(Math.random() * symbols.length)]
+    }
+    if (includeNumbers) {
+      return numbers[Math.floor(Math.random() * numbers.length)]
+    }
+    if (includeUppercase) {
+      return alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleUpperCase()
+    }
+    if (includeLowercase) {
+      return alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleLowerCase()
+    }
+  }
+
   function generatePassword() {
+    //setNewPassword("select at least one option.")
     let password = []
     while (Number(passwordLength) > password.length) {
-      const randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-      const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-      const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-
-
       const characterArray = [
-        randomLetter,
-        includeNumbers ? randomNumber : randomLetter,
-        includeSymbols ? randomSymbol : randomLetter
+        (includeUppercase && includeLowercase) ? alphabet[Math.floor(Math.random() * alphabet.length)].toLocaleUpperCase().toLocaleLowerCase() : returnDefaultLetters(),
+        returnDefaultLetters(),
+        returnDefaultLetters()
       ];
-
-      console.log(characterArray, characterArray.join(""), characterArray.length)
-
       const shufflePositionResult = characterArray[Math.floor(Math.random() * characterArray.length)];
 
       password.push(shufflePositionResult)
@@ -120,7 +168,7 @@ export function App() {
             </div>
             <div className={styles.displayResult}>
               <label htmlFor="newPassword">Your New Password:</label>
-              <input type="text" value={newPassword} id="newPassword" />
+              <input type="text" value={newPassword} onChange={(e) => (e.target.value === newPassword)} id="newPassword" />
               <button>Copy</button>
             </div>
             <div className={styles.generatorButton}>
