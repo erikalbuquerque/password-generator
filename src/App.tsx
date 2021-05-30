@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Header } from "./components/Header";
 
 import styles from "./styles/home.module.scss";
@@ -15,6 +15,15 @@ export function App() {
   const [includeLowercase, setIncludeLowercase] = useState(true);
   const [includeNumbers, setIncludeNumbers] = useState(true)
   const [includeSymbols, setIncludeSymbols] = useState(true)
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function copyToClipboard() {
+    if (inputRef) {
+      inputRef.current?.select()
+      document.execCommand('copy');
+    }
+  }
 
   function returnDefaultLetters() {
     if ((!includeUppercase && !includeLowercase) && (includeNumbers && includeSymbols)) {
@@ -168,8 +177,8 @@ export function App() {
             </div>
             <div className={styles.displayResult}>
               <label htmlFor="newPassword">Your New Password:</label>
-              <input type="text" value={newPassword} onChange={(e) => (e.target.value === newPassword)} id="newPassword" />
-              <button>Copy</button>
+              <input type="text" ref={inputRef} value={newPassword} onChange={(e) => (e.target.value === newPassword)} id="newPassword" />
+              <button onClick={copyToClipboard}>Copy</button>
             </div>
             <div className={styles.generatorButton}>
               <button onClick={generatePassword}>Generate Password</button>
