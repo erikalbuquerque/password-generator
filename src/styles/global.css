@@ -1,3 +1,22 @@
+:root {
+    --background-light: #f5f5f5;
+    --background-dark: #121214;
+    --background-container-light: #ffffff;
+    --background-container-dark: ##202024;
+    --text-white: #f5f5f5;
+    --text-black: #0e0e10;
+    --text-green: #008040;
+    --text-green-2: #10b462;
+    --text-gray: #414141;
+    --red: #ff5f56;
+    --red-2: #f25f5c;
+    --yellow: #ffbd2e;
+    --yellow-2: #ffe066;
+    --green: #27c93f;
+    --blue: #247ba0;
+    --box-shadow-color-dark: rgba(0, 0, 0, 0.12);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +24,8 @@
 }
 
 body {
-    background-color: #f5f5f5;
-    color: #0e0e10;
+    background-color: var(--background-light);
+    color: var(--text-black);
     font-family: "Montserrat", sans-serif;
 }
 

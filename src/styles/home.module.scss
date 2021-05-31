@@ -20,8 +20,8 @@
     transition: all 0.2s ease;
     border-radius: 0.313rem;
     padding: 1rem;
-    box-shadow: 0 0.313rem 0.625rem rgba(0, 0, 0, 0.12);
-    background-color: #fff;
+    box-shadow: 0 0.313rem 0.625rem var(--box-shadow-color-dark);
+    background-color: var(--background-container-light);
     border: 1px solid transparent;
     .header {
         display: flex;
@@ -43,15 +43,15 @@
                 display: inline-block;
             }
             .red {
-                background-color: #ff5f56;
+                background-color: var(--red);
             }
             .yellow {
                 margin-left: 0.375rem;
-                background-color: #ffbd2e;
+                background-color: var(--yellow);
             }
             .green {
                 margin-left: 0.375rem;
-                background-color: #27c93f;
+                background-color: var(--green);
             }
         }
     }
@@ -77,7 +77,7 @@
 
 .generator {
     button {
-        color: #414141;
+        color: var(--text-gray);
         border: none;
         font-size: 0.875rem;
         font-weight: bold;
@@ -94,7 +94,7 @@
             width: 15rem;
             height: 1.875rem;
             font-size: 0.875rem;
-            color: #008040;
+            color: var(--text-green);
             padding: 0 0 0 0.313rem;
         }
         button {
@@ -106,7 +106,7 @@
         }
         .copySuccess {
             font-size: 1rem;
-            color: #10b462;
+            color: var(--text-green-2);
             font-weight: bold;
             margin-left: 0.5rem;
         }
