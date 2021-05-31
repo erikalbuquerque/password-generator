@@ -14,7 +14,7 @@ export function Header() {
       </div>
 
       <div className={`${styles.settings} ${darkMode}`}>
-        <span>Theme</span>
+        <span>Dark Theme</span>
         {darkTheme
           ? (<BsToggleOn onClick={setTheme} size={20} />)
           : (<BsToggleOff onClick={setTheme} size={20} />)}
