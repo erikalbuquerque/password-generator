@@ -26,8 +26,11 @@ export function App() {
 
   const [loadCreatePassword, setLoadCreatePassword] = useState(false)
 
+  const [copySuccessDisplay, setCopySuccessDisplay] = useState(false)
+
   function copyToClipboard() {
     if (inputRef) {
+      setCopySuccessDisplay(true);
       inputRef.current?.select()
       document.execCommand('copy');
     }
@@ -139,6 +142,17 @@ export function App() {
   }, [newPassword, dencrypt]);
 
 
+  useEffect(() => {
+    const action = setInterval(() => {
+      setCopySuccessDisplay(false)
+    }, 2000)
+
+
+    return () => clearInterval(action)
+
+  }, [copySuccessDisplay]);
+
+
   return (
     <>
       <Header />
@@ -227,6 +241,8 @@ export function App() {
                 id="newPassword"
               />
               <button onClick={copyToClipboard}>Copy</button>
+
+              {copySuccessDisplay && <span className={styles.copySuccess}>Done!</span>}
             </div>
             <div className={styles.generatorButton}>
               <button onClick={generatePassword}>
