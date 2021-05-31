@@ -294,7 +294,7 @@ export function App() {
                   <Loader
                     type="Grid"
                     color="#000"
-                    height={15}
+                    height={12}
                     width={25}
                     timeout={3000} //3 secs
                   />
