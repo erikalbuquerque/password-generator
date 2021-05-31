@@ -11,14 +11,14 @@ export function Header() {
   return (
     <div className={styles.container}>
       <div className={`${styles.logo} ${darkMode}`}>
-        <h1>Password <RiShieldKeyholeFill size={25} color={`${darkTheme ? "var(--text-white)" : "var(--text-black)"}`} /> Generator</h1>
+        <h1>Password <RiShieldKeyholeFill size={25} />  Generator</h1>
       </div>
 
       <div className={`${styles.settings} ${darkMode}`}>
         <span>Theme</span>
         {darkTheme
-          ? (<BsToggleOn onClick={setTheme} size={20} color={`${darkTheme ? "var(--text-white)" : "var(--text-black)"}`} />)
-          : (<BsToggleOff onClick={setTheme} size={20} color={`${darkTheme ? "var(--text-white)" : "var(--text-black)"}`} />)}
+          ? (<BsToggleOn onClick={setTheme} size={20} />)
+          : (<BsToggleOff onClick={setTheme} size={20} />)}
       </div>
 
     </div>

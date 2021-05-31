@@ -7,6 +7,9 @@
     justify-content: center;
     .dark {
         color: var(--text-white);
+        svg {
+            color: var(--text-white);
+        }
     }
     .logo {
         display: flex;
