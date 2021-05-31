@@ -1,12 +1,11 @@
 import { useRef, useState } from "react";
 import { Header } from "./components/Header";
 
+import { alphabet, numbers, symbols } from "./utils/arrays"
+
 import styles from "./styles/home.module.scss";
 
 export function App() {
-  const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  const symbols = ['"', "'", "!", "@", "#", "$", "%", "¨", "&", "*", "(", ")", "_", "-", "=", "+", "§", "£", "¢", "¬", "{", "}", "[", "]", "?"]
 
   const [passwordLength, setPasswordLength] = useState("6");
   const [newPassword, setNewPassword] = useState("Your new password will appear here.")
