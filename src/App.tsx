@@ -9,8 +9,15 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
 import styles from "./styles/home.module.scss";
+import "./styles/colorPasswordStrength.css"
+
+type testedResultProps = {
+  score: number
+}
 
 export function App() {
+
+  const zxcvbn = require("zxcvbn");
 
   const { result, dencrypt } = useDencrypt();
 
@@ -27,6 +34,8 @@ export function App() {
   const [loadCreatePassword, setLoadCreatePassword] = useState(false)
 
   const [copySuccessDisplay, setCopySuccessDisplay] = useState(false)
+
+  const [passwordStrengthDisplayText, setPasswordStrengthDisplayText] = useState("");
 
   function copyToClipboard() {
     if (inputRef) {
@@ -133,9 +142,9 @@ export function App() {
       i = i === newPassword.length - 1 ? 0 : i + 1;
 
       setLoadCreatePassword(false)
+      passwordStrength()
 
     }, 2000)
-
 
     return () => clearInterval(action)
 
@@ -152,6 +161,27 @@ export function App() {
 
   }, [copySuccessDisplay]);
 
+  function passwordStrength() {
+    const testedResult: testedResultProps = zxcvbn(newPassword)
+    setPasswordStrengthDisplayText(passwordLabel(testedResult))
+  }
+
+  function passwordLabel(testedPassword: testedResultProps) {
+    switch (testedPassword.score) {
+      case 0:
+        return 'Weak';
+      case 1:
+        return 'Weak';
+      case 2:
+        return 'Fair';
+      case 3:
+        return 'Good';
+      case 4:
+        return 'Strong';
+      default:
+        return 'Weak';
+    }
+  }
 
   return (
     <>
@@ -244,6 +274,12 @@ export function App() {
 
               {copySuccessDisplay && <span className={styles.copySuccess}>Done!</span>}
             </div>
+
+            <div className={styles.passwordStrengthDisplay}>
+              <label>Password Strength:</label>
+              <strong className={passwordStrengthDisplayText}>{passwordStrengthDisplayText}</strong>
+            </div>
+
             <div className={styles.generatorButton}>
               <button onClick={generatePassword}>
                 {loadCreatePassword ?
