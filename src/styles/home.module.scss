@@ -75,6 +75,11 @@
     }
 }
 
+.dark {
+    background: var(--background-container-dark);
+    color: var(--text-white);
+}
+
 .generator {
     button {
         color: var(--text-gray);

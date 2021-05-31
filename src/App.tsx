@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Header } from "./components/Header";
 
 import { alphabet, numbers, symbols } from "./utils/arrays"
 import { useDencrypt } from "use-dencrypt-effect"
+
+import { ThemeContext } from "./contexts/themeContext";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -16,6 +18,10 @@ type testedResultProps = {
 }
 
 export function App() {
+
+  const { darkTheme } = useContext(ThemeContext)
+
+  const darkMode = darkTheme && styles.dark;
 
   const zxcvbn = require("zxcvbn");
 
@@ -189,7 +195,7 @@ export function App() {
 
       <div className={styles.wrapper}>
         <div className={styles.content}>
-          <div className={styles.options}>
+          <div className={`${styles.options} ${darkMode}`}>
             <div className={styles.header}>
               <div className={styles.buttons}>
                 <span className={styles.red} />
@@ -253,7 +259,7 @@ export function App() {
               </div>
             </div>
           </div>
-          <div className={styles.generator}>
+          <div className={`${styles.generator} ${darkMode}`}>
             <div className={styles.header}>
               <div className={styles.buttons}>
                 <span className={styles.red} />
