@@ -33,5 +33,11 @@
         svg {
             cursor: pointer;
         }
+        svg:first-child {
+            margin-right: 0.5rem;
+        }
+        svg:last-child {
+            margin-left: 0.5rem;
+        }
     }
 }
