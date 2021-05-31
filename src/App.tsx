@@ -35,7 +35,7 @@ export function App() {
 
   const [copySuccessDisplay, setCopySuccessDisplay] = useState(false)
 
-  const [passwordStrengthDisplayText, setPasswordStrengthDisplayText] = useState("");
+  const [passwordStrengthDisplayText, setPasswordStrengthDisplayText] = useState("The password strength level appears here.");
 
   function copyToClipboard() {
     if (inputRef) {
