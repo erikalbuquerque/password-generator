@@ -1,11 +1,14 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Header } from "./components/Header";
 
 import { alphabet, numbers, symbols } from "./utils/arrays"
+import { useDencrypt } from "use-dencrypt-effect"
 
 import styles from "./styles/home.module.scss";
 
 export function App() {
+
+  const { result, dencrypt } = useDencrypt();
 
   const [passwordLength, setPasswordLength] = useState("6");
   const [newPassword, setNewPassword] = useState("Your new password will appear here.")
@@ -16,6 +19,8 @@ export function App() {
   const [includeSymbols, setIncludeSymbols] = useState(true)
 
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const [loadCreatePassword, setLoadCreatePassword] = useState(false)
 
   function copyToClipboard() {
     if (inputRef) {
@@ -99,6 +104,36 @@ export function App() {
     setNewPassword(password.join("").trim())
   }
 
+  function initialDisplay() {
+    if (newPassword !== "Your new password will appear here.") {
+      return result
+    } else {
+      return newPassword
+    }
+  }
+
+  useEffect(() => {
+
+    if (newPassword === "Your new password will appear here.") return
+
+    let i = 0;
+
+    setLoadCreatePassword(true)
+
+    const action = setInterval(() => {
+      dencrypt(newPassword);
+
+      i = i === newPassword.length - 1 ? 0 : i + 1;
+
+      setLoadCreatePassword(false)
+
+    }, 2000)
+
+
+    return () => clearInterval(action)
+
+  }, [newPassword, dencrypt]);
+
 
   return (
     <>
@@ -180,11 +215,19 @@ export function App() {
             </div>
             <div className={styles.displayResult}>
               <label htmlFor="newPassword">Your New Password:</label>
-              <input type="text" ref={inputRef} value={newPassword} onChange={(e) => (e.target.value === newPassword)} id="newPassword" />
+              <input
+                type="text"
+                ref={inputRef}
+                value={initialDisplay()}
+                onChange={(e) => (e.target.value === initialDisplay())}
+                id="newPassword"
+              />
               <button onClick={copyToClipboard}>Copy</button>
             </div>
             <div className={styles.generatorButton}>
-              <button onClick={generatePassword}>Generate Password</button>
+              <button onClick={generatePassword}>
+                {loadCreatePassword ? "loading..." : "Generate Password"}
+              </button>
             </div>
           </div>
         </div>
