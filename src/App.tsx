@@ -81,7 +81,11 @@ export function App() {
   }
 
   function generatePassword() {
-    //setNewPassword("select at least one option.")
+    if (!includeUppercase && !includeLowercase && !includeNumbers && !includeSymbols) {
+      setNewPassword("select at least one option.")
+      return
+    }
+
     let password = []
     while (Number(passwordLength) > password.length) {
       const characterArray = [
