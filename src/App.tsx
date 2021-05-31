@@ -4,6 +4,10 @@ import { Header } from "./components/Header";
 import { alphabet, numbers, symbols } from "./utils/arrays"
 import { useDencrypt } from "use-dencrypt-effect"
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+import Loader from "react-loader-spinner";
+
 import styles from "./styles/home.module.scss";
 
 export function App() {
@@ -226,7 +230,15 @@ export function App() {
             </div>
             <div className={styles.generatorButton}>
               <button onClick={generatePassword}>
-                {loadCreatePassword ? "loading..." : "Generate Password"}
+                {loadCreatePassword ?
+                  <Loader
+                    type="Grid"
+                    color="#000"
+                    height={15}
+                    width={25}
+                    timeout={3000} //3 secs
+                  />
+                  : "Generate Password"}
               </button>
             </div>
           </div>
