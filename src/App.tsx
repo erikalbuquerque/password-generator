@@ -1,10 +1,10 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Header } from "./components/Header";
 
 import { alphabet, numbers, symbols } from "./utils/arrays"
 import { useDencrypt } from "use-dencrypt-effect"
 
-import { ThemeContext } from "./contexts/themeContext";
+import { useTheme } from "./contexts/themeContext";
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -19,7 +19,7 @@ type testedResultProps = {
 
 export function App() {
 
-  const { darkTheme } = useContext(ThemeContext)
+  const { darkTheme } = useTheme()
 
   const darkMode = darkTheme && styles.dark;
 

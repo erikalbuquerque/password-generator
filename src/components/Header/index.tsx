@@ -1,11 +1,10 @@
 import styles from "./style.module.scss"
 import { RiShieldKeyholeFill } from "react-icons/ri";
 import { BsToggleOff, BsToggleOn } from "react-icons/bs"
-import { useContext } from "react";
-import { ThemeContext } from "../../contexts/themeContext";
+import { useTheme } from "../../contexts/themeContext";
 
 export function Header() {
-  const { darkTheme, setTheme } = useContext(ThemeContext)
+  const { darkTheme, setTheme } = useTheme()
 
   const darkMode = darkTheme && styles.dark;
   return (
