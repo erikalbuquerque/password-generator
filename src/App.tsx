@@ -201,10 +201,12 @@ export function App() {
             </div>
 
             <div className={styles.middleContent}>
-              <div className="password-length">
+              <div className={styles.passwordLength}>
                 <span>Password Length:</span>
                 <input
                   type="number"
+                  min={6}
+                  max={100}
                   value={passwordLength}
                   onChange={(e) => setPasswordLength(e.target.value)} />
               </div>
