@@ -15,7 +15,7 @@ export function Header() {
         <h1>Password <RiShieldKeyholeFill size={25} /> Generator</h1>
       </div>
 
-      <div className={`${styles.settings} ${darkMode}`}>
+      <div className={`${styles.themeSwitch} ${darkMode}`}>
         {darkTheme
           ? <HiOutlineSun size={15} />
           : <HiSun size={15} />
