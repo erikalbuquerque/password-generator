@@ -51,7 +51,7 @@ cd password-generator
 yarn install
 
 # Run the application
-yarn dev
+yarn start
 
 # Go to http://localhost:3000 in your browser.
 ```
