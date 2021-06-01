@@ -15,14 +15,14 @@ Password Generator is an application that facilitates your password creation, ma
 ### Dark
 
 <h4 align="center">
-  <img alt="home-dark" title="home-dark" src=".github/readme/darkTheme.png" width="500px" />
+  <img alt="home-dark" title="home-dark" src=".github/readme/darkTheme.png" width="800px" />
   
 </h4>
 
 ### Light
 
 <h4 align="center">
-  <img alt="home-light" title="home-light" src=".github/readme/lightTheme.png" width="500px" />
+  <img alt="home-light" title="home-light" src=".github/readme/lightTheme.png" width="800px" />
   
 </h4>
 
