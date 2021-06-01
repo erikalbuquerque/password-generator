@@ -60,5 +60,5 @@ yarn dev
 
 Feito com :purple_heart: by [Érik Albuquerque](https://github.com/erikalbuquerque)
 
-[![Linkedin Badge](https://img.shields.io/badge/-Érik%20Albuquerque-f5f5f5?style=flat-square&logo=Linkedin&logoColor=black&link=https://www.linkedin.com/in/erikalbuquerque/)](https://www.linkedin.com/in/erikalbuquerque/)
+[![Linkedin Badge](https://img.shields.io/badge/-Érik%20Albuquerque-f5f5f5?style=flat-square&logo=Linkedin&logoColor=black&link=https://www.linkedin.com/in/erik-albuquerque/)](https://www.linkedin.com/in/erik-albuquerque/)
 [![Gmail Badge](https://img.shields.io/badge/-erik.albuquerque.oficial@gmail.com-f5f5f5?style=flat-square&logo=Gmail&logoColor=black&link=mailto:erik.albuquerque.oficial@gmail.com)](mailto:erik.albuquerque.oficial@gmail.com)
