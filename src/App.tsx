@@ -27,7 +27,7 @@ export function App() {
 
   const { result, dencrypt } = useDencrypt();
 
-  const [passwordLength, setPasswordLength] = useState("6");
+  const [passwordLength, setPasswordLength] = useState(6);
   const [newPassword, setNewPassword] = useState("Your new password will appear here.")
 
   const [includeUppercase, setIncludeUppercase] = useState(true);
@@ -189,6 +189,12 @@ export function App() {
     }
   }
 
+  function handlePasswordLength(value: string) {
+    const valueNumber = Number(value)
+    if (valueNumber < 6 || valueNumber > 100) return
+    setPasswordLength(valueNumber)
+  }
+
   return (
     <>
       <Header />
@@ -214,7 +220,7 @@ export function App() {
                   min={6}
                   max={100}
                   value={passwordLength}
-                  onChange={(e) => setPasswordLength(e.target.value)} />
+                  onChange={(e) => handlePasswordLength(e.target.value)} />
               </div>
 
               <div className="uppercace-characters">
