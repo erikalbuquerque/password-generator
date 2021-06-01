@@ -41,7 +41,7 @@ Technologies and tools used in the development of the project:
 
 ```bash
 # Open a terminal and copy this repository with the command
-git clone https://github.com/erikalbuquerque/password-genertor.git
+git clone https://github.com/erikalbuquerque/password-generator.git
 # or use the download option.
 
 # Enter the web folder with
